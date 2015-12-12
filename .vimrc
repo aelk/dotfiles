@@ -1,24 +1,21 @@
 "Appearance"
 syntax on
+set number
+set cursorline
+hi CursorLine term=bold cterm=bold
 set visualbell
 
 "Tabs"
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-set noexpandtab
+set expandtab
 set smarttab
 set autoindent
 
 "Mappings"
-map <MiddleMouse> <Nop>
-imap <MiddleMouse> <Nop>
-imap <C-BS> <C-W>
-noremap <C-t> <Esc>:tabnew<CR>
-noremap <C-o> <Esc>:browse confirm e<CR>
 imap jk <Esc>
 nnoremap ; :
-noremap <silent><F2> :set spell!<CR>
 
 "Search"
 set ignorecase
@@ -28,8 +25,6 @@ set hlsearch
 set showmatch
 
 "Misc"
-cd ~/Desktop
 set ruler
 set wildmenu
 set autochdir
-
