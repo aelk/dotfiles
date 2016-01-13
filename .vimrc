@@ -9,6 +9,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
+Plugin 'altercation/vim-colors-solarized'
 call vundle#end()
 
 "YouCompleteMe"
@@ -18,14 +19,16 @@ let g:ycm_add_preview_to_completeopt = 0
 let g:ycm_show_diagnostics_ui = 0 " syntastic compatibility
 
 "Appearance"
-colors cedar
 syntax on
 set number
 set cursorline
-hi CursorLine guibg=darkblue
 set visualbell
 set guicursor=a:blinkon0
-hi Cursor guibg=Green
+colors solarized
+set bg=light
+"colors cedar
+"hi CursorLine guibg=darkblue
+"hi Cursor guibg=Green
 
 "Tabs"
 set tabstop=4
