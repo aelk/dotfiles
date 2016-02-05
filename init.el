@@ -3,6 +3,7 @@
               visible-bell 1
               show-paren-mode 1
               show-paren-delay 0
+              major-mode 'text-mode
 
               indent-tabs-mode nil
               c-basic-offset 4
@@ -52,13 +53,6 @@ re-downloaded in order to locate PACKAGE."
 (require 'evil)
 (evil-mode t)
 
-;; enable vim-like tabs
-(global-evil-tabs-mode t)
-
-(require 'powerline)
-(powerline-evil-center-color-theme)
-(display-time-mode t)
-
 (require 'key-chord)
 (key-chord-mode 1)
 (key-chord-define evil-insert-state-map  "jk" 'evil-normal-state)
@@ -68,10 +62,6 @@ re-downloaded in order to locate PACKAGE."
 (require 'yasnippet)
 (yas-global-mode 1)
 
-
-;(global-set-key [mouse-2]
-;  '(lambda () (interactive)
-;     (message "Pasting with middle-button disabled in .emacs file!")))
 
 (global-set-key [mouse-2] nil)
 
@@ -155,4 +145,3 @@ re-downloaded in order to locate PACKAGE."
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
 (add-hook 'after-init-hook #'global-flycheck-mode)
-
