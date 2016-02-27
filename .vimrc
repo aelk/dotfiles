@@ -16,7 +16,17 @@ Plugin 'ervandew/supertab'
 Plugin 'junegunn/vim-easy-align'
 call vundle#end()
 
+" merlin -- use \t or :MerlinTypeOf while cursor is on function
+" https://github.com/the-lambda-church/merlin/wiki/vim-from-scratch#with-opam
+let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+execute "set rtp+=" . g:opamshare . "/merlin/vim"
+
+
+"Syntastic"
+let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 let g:syntastic_mode_map = { 'passive_filetypes': ['tex'] }
+let g:syntastic_ocaml_checkers = ['merlin']
 
 "YouCompleteMe"
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
@@ -42,27 +52,31 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 "Appearance"
+set background=dark
+colors elflord
 syntax on
 set number
 set visualbell
-set guicursor=a:blinkon0
 set cursorline
 
+
 if has("gui_running")
-    colors peachpuff
-    "hi CursorLine guibg=darkblue
-    "hi Cursor guibg=Green
+  set guicursor=a:blinkon0
+  set guioptions-=r
+  "hi CursorLine guibg=darkblue
+  "hi Cursor guibg=Green
 else
-    hi CursorLine term=bold cterm=bold
+  hi CursorLine term=bold cterm=bold
 endif
 
 "Tabs"
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set expandtab
 set smarttab
 set autoindent
+set colorcolumn=80,81
 
 "Mappings"
 imap jk <Esc>
@@ -79,6 +93,7 @@ set showmatch
 set ruler
 set wildmenu
 set autochdir
+set scrolloff=5
 
 " http://vi.stackexchange.com/a/456
 fun! TrimWhitespace()
