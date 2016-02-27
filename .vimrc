@@ -63,8 +63,9 @@ set cursorline
 if has("gui_running")
   set guicursor=a:blinkon0
   set guioptions-=r
-  "hi CursorLine guibg=darkblue
-  "hi Cursor guibg=Green
+  hi CursorLine guibg=darkblue
+  hi Cursor guibg=Green
+  hi LineNr guifg=darkgrey
 else
   hi CursorLine term=bold cterm=bold
 endif
