@@ -10,6 +10,7 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'morhetz/gruvbox'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'ervandew/supertab'
@@ -52,32 +53,28 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 "Appearance"
-set background=dark
-colors elflord
+set guifont=Menlo\ Regular:h12
+set bg=dark
+colors gruvbox
 syntax on
-set number
 set visualbell
 set cursorline
-
 
 if has("gui_running")
   set guicursor=a:blinkon0
   set guioptions-=r
-  hi CursorLine guibg=darkblue
-  hi Cursor guibg=Green
-  hi LineNr guifg=darkgrey
+  set guioptions-=L
 else
   hi CursorLine term=bold cterm=bold
 endif
 
 "Tabs"
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
+autocmd Filetype c setlocal ts=8 sw=8 sts=8
+autocmd Filetype cpp,ocaml setlocal ts=2 sw=2 sts=2
+autocmd Filetype python,shell,matlab,tex setlocal ts=4 sw=4 sts=4
 set expandtab
-set smarttab
 set autoindent
-set colorcolumn=80,81
+set smartindent
 
 "Mappings"
 imap jk <Esc>
@@ -104,3 +101,10 @@ fun! TrimWhitespace()
 endfun
 
 command! TrimWhitespace call TrimWhitespace()
+
+fun! Tex()
+    w
+    !pdflatex %
+endfun
+
+command! Tex call Tex()
